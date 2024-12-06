@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire water line leak Report</title>
+</head>
+
+<body>
+
+    <div class="form-container" id="pdf-content">
+        <table class="header-table">
+            <tr>
+                <td rowspan="2" style="width: 10%; text-align: center;">
+                    <img src="hpcl-logo.png" alt="HP Logo" class="hp-logo">
+                </td>
+                <td class="header-left">
+                    <strong>Hindustan Petroleum Corporation Limited</strong><br><br>
+                    Mumbai Refinery
+                </td>
+                <td rowspan="3" class="header-right">
+                    Issue No: 1<br>
+                    Issue Date: 8/11/2024<br>
+                    Rev No: 0<br>
+                    Rev Date:<br>
+                    <span class="no-wrap">Doc No: HPCL MR/FRM/F&S/08200-10</span>
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="header-left">
+                    <strong>Fire Water line leakage Report</strong>
+                </td>
+               
+            </tr>
+        </table>
+       
+        <table>
+            <tr>
+                <td>Date of line leaked</td>
+                <td> <input type="date" name="Date"></td>
+                <td>Time of line leaked</td>
+                <td><input type="time" name="Time"></td>
+            </tr>
+            <tr>
+                <td>Information given by</td>
+                <td><select name="information">
+                        <option value="">Select</option>
+                        <option>Contractor</option>
+                        <option>Employee</option>
+                    </select></td>
+                <td>Name of Person</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Line size</td>
+                <td><input type="text" name="linesize"></td>
+                <td>Leak location</td>
+                <td><input type="text" name="location"></td>
+            </tr>
+            <tr>
+                <td>Notification No.</td>
+                <td><input type="text" name="notification"></td>
+                <td>Route To</td>
+                <td><input type="text" name="routeto"></td>
+            </tr>
+            <tr>
+                <th colspan="2">HYDRANTS / MONITORS AFFECTED</th>
+            </tr>
+            <tr>
+                <td><div class="checkbox"></div> Total Hydrant</td>
+                <td><input type="text" class="input-box" name="total_hydt"></td>
+            
+            
+                <td><div class="checkbox"></div> Total Monitors</td>
+                <td><input type="text" class="input-box" name="total_moni"></td>
+            </tr>
+
+            <tr>
+                <th colspan="2">WSS/FOAM LINES AFFECTED</th>
+            </tr>
+            <tr>
+                <td>A) WSS Lines</td>
+                <td><input type="text" class="input-box" name="wss_lines" placeholder="0"></td>
+            
+                <td>B) Foam Lines</td>
+                <td><input type="text" class="input-box" name="foam_lines" placeholder="0"></td>
+            </tr>
+            <tr>
+                <td>Unit Area</td>
+                <td><input type="text" name="Unit"></td>
+                <td>Department</td>
+                <td><input type="text" name="Department"></td>
+            </tr>
+
+            <tr>
+                <td>Action taken by operation</td>
+                <td><select name="operation">
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></td>
+                   
+                </td>
+                <td>Action taken by fire and safety</td>
+                <td><select name="fire">
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>Immediate action by fire and safety</td>
+                <td><input type="text" name="safety"></td>
+                <td>Affected Equipments tagged</td>
+                <td><select name="equipments">
+                    <option value="">Select</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select></td>
+            </tr>
+
+            <tr>
+                <td>Action taken by maintenance</td>
+                <td><input type="text" name="maint"></td>
+                <td>Total B/V closed</td>
+                <td><input type="text" name="total"></td>
+            </tr>
+
+            <tr>
+                <td>Informed to</td>
+                <td><select name="informed">
+                        <option value="">Select</option>
+                        <option>Shift officer</option>
+                        <option>RSM</option>
+                        <option>N/A</option>
+                    </select></td>
+                <td>Name of Person</td>
+                <td><input type="text" name="Person"></td>
+            </tr>
+
+        
+        </table>
+
+
+       
+           
+
+        <!-- Remarks and Observations -->
+        <div class="form-group">
+            <label>Description:</label>
+            <textarea id="msg1" name="description"></textarea>
+        </div>
+        <table>
+        <tr>
+            <td>Leak Location Pic</td>
+            <td>
+                <!-- Image preview element -->
+                <img id="imagePreview1" style="display: none; width: 100px; height: auto;">
+                <br>
+                <!-- File input element with onchange event -->
+                <input type="file" id="profilePicture1" name="profile" accept="image/jpeg, image/png, image/gif" onchange="displayImage(this, 'LeakLocationPic1', 'imagePreview1')">
+            </td>
+        </tr>
+        <!--<tr>
+            <td>Leak Location Pic-2</td>
+            <td>
+                <img id="imagePreview2" style="display: none; width: 100px; height: auto;">
+                <br>
+                <input type="file" id="profilePicture2" name="profilepic" accept="image/jpeg, image/png, image/gif" onchange="displayImage(this, 'LeakLocationPic2', 'imagePreview2')">
+            </td>
+        </tr>-->
+        </table>
+
+        <!-- Testing Info -->
+        <div class="flex-row">
+            <div class="form-group">
+                <label>Submitted by</label>
+                <input type="text" name="submitted">
+            </div>
+            <div class="form-group">
+                <label>Designation</label>
+                <input type="text" name="designation">
+            </div>
+        </div>
+
+        <!-- Save as PDF Button (will be hidden in PDF) -->
+        <button id="saveAsPdf">Save as PDF</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
